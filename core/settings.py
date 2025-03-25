@@ -86,7 +86,6 @@ CSRF_TRUSTED_ORIGINS = [
     "https://192.168.1.12:3000",
     "https://valourwealthdjango-production.up.railway.app",
     "https://valourwealthy.vercel.app"
-
 ]
 
 
