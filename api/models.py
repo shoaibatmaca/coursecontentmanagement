@@ -50,12 +50,16 @@ class CourseLevel(models.Model):
     def __str__(self):
         return f"{self.course.title} - {self.level}"
 
+from core.storage_backends import R2Storage
+
+
+
 
 class Video(models.Model):
     course_level = models.ForeignKey(CourseLevel, on_delete=models.CASCADE, related_name='videos')
     title = models.CharField(max_length=255)
     description = models.TextField()
-    video_file = models.FileField(upload_to='course_videos/')  # or use URLField if using external URLs
+    video_file = models.FileField(storage=R2Storage(), upload_to='course_videos/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
