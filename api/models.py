@@ -61,3 +61,6 @@ class Video(models.Model):
     def __str__(self):
         return f"{self.title} - {self.course_level.level}"
 
+    @property
+    def public_url(self):
+        return f"https://pub-c24b4ce82c314030ac44820f8cc0b95e.r2.dev/{self.video_file.name}"
