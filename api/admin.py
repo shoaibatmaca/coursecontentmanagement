@@ -16,7 +16,13 @@ class CourseLevelAdmin(admin.ModelAdmin):
     list_display = ['course', 'level']
     list_filter = ['level']
 
+
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ['title', 'course_level', 'uploaded_at']
+    list_display = ['title', 'course_level', 'uploaded_at', 'get_public_url']
     search_fields = ['title', 'description']
+
+    def get_public_url(self, obj):
+        return obj.public_url  # This uses the @property on your model
+
+    get_public_url.short_description = 'Public URL'
