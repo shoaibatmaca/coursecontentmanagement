@@ -48,9 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
-    'api',
-    
+    'api',   
 ]
+INSTALLED_APPS += ['storages']
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -126,6 +126,23 @@ DATABASES = {
         ssl_require=True
     )
 }
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+AWS_ACCESS_KEY_ID = 'db2fba5b80710ceb7dc6f50a7fcbd198'
+AWS_SECRET_ACCESS_KEY = '18d49ce5ea20703dcc613fc5f40385477aa673595ba5be14fcadcef059ccfaad'
+AWS_STORAGE_BUCKET_NAME = 'coursecontentmanagement'
+
+AWS_S3_ENDPOINT_URL = 'https://a5f9ee7b3883a9c77c46adca93821bec.r2.cloudflarestorage.com'
+AWS_S3_REGION_NAME = 'auto'  # R2 doesn't use real AWS regions
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_QUERYSTRING_AUTH = False  # Set to True if you want signed URLs
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
