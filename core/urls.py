@@ -24,13 +24,12 @@ from rest_framework_simplejwt.views import (
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from api.views import CourseViewSet, CourseLevelViewSet, VideoViewSet
+from api.views import  CourseViewSet, CourseLevelViewSet, VideoViewSet
 
 router = DefaultRouter()
 router.register('courses', CourseViewSet)
 router.register('levels', CourseLevelViewSet)
 router.register('videos', VideoViewSet)
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     # JWT endpoints
